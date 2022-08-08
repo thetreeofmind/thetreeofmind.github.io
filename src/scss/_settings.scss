@@ -1,0 +1,20 @@
+$fa-font-path: "~font-awesome/fonts";
+
+// Defined variables
+$base-white: #fff !default;
+$base-black: #000 !default;
+$base-light-gray: #d3d3d3 !default;
+$base-medium-gray: #999 !default;
+$base-color: $base-black !default;
+$base-background: #505050 !default;
+$base-font: "Open Sans", arial, sans-serif !default;
+$base-font-size: 16px;
+
+$base-spacing: 4px !default;
+$base-spacing-extra-small: 4px !default;
+$base-spacing-small: $base-spacing * 2 !default;
+$base-spacing-medium: $base-spacing * 4 !default;
+$base-spacing-large: $base-spacing * 6 !default;
+$base-spacing-extra-large: $base-spacing * 8 !default;
+
+$link-color: #007bff;
