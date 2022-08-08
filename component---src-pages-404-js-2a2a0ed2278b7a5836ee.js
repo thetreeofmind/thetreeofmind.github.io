@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkthetreeofmind=self.webpackChunkthetreeofmind||[]).push([[883],{9616:function(e,t,a){a.r(t);var n=a(7294),c=a(5444);t.default=()=>n.createElement("div",{className:"section"},n.createElement("div",{className:"not-found txtc"},n.createElement("h1",{className:"block"},"404"),n.createElement("p",null,"SORRY, PAGE NOT FOUND!"),n.createElement(c.Link,{to:"/"},n.createElement("button",{className:"button"},"Home Page"))))}}]);
+//# sourceMappingURL=component---src-pages-404-js-2a2a0ed2278b7a5836ee.js.map

@@ -1,8 +1,8 @@
 module.exports = {
   pathPrefix: '/',
   siteMetadata: {
-    title: 'The Little Thoughts',
-    siteUrl: 'https://thelittlethoughts.com',
+    title: 'The Tree of Mind',
+    siteUrl: 'https://thetreeofmind.com',
   },
   plugins: [
     'gatsby-plugin-sass',
@@ -16,15 +16,15 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-s3',
       options: {
-        bucketName: 'thelittlethoughts.com',
+        bucketName: 'thetreeofmind.com',
       }
     },
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'The Little Thoughts',
-        short_name: 'The Little Thoughts',
-        description: 'The Little Thoughts',
+        name: 'The Tree of Mind',
+        short_name: 'The Tree of Mind',
+        description: 'The Tree of Mind',
         start_url: '/',
         background_color: '#ffffff',
         theme_color: '#000000',

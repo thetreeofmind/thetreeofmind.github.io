@@ -1,8 +1,8 @@
 {
-  "name": "thelittlethoughts",
+  "name": "thetreeofmind",
   "version": "0.1.0",
-  "homepage": "thelittlethoughts.com",
-  "description": "The Little Thoughts",
+  "homepage": "thetreeofmind.com",
+  "description": "The Tree of Mind",
   "main": "index.js",
   "scripts": {
     "develop": "gatsby develop",
@@ -10,9 +10,9 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "deploy": "gatsby build --prefix-paths && gatsby-plugin-s3 deploy -y"
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
   },
-  "author": "The Little Thoughts",
+  "author": "The Tree of Mind",
   "license": "ISC",
   "dependencies": {
     "bootstrap": "^4.4.1",

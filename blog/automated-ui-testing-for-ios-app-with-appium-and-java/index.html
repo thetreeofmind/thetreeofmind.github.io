@@ -1,0 +1,176 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="generator" content="Gatsby 3.14.6"/><link rel="sitemap" type="application/xml" href="/sitemap/sitemap-index.xml"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><meta name="theme-color" content="#000000"/><link rel="apple-touch-icon" sizes="48x48" href="/images/favicon-tab.png"/><link rel="preconnect" href="https://www.googletagmanager.com"/><link rel="dns-prefetch" href="https://www.googletagmanager.com"/><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-"></script><script>
+      
+      
+      if(true) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){window.dataLayer && window.dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-', {"send_page_view":false});
+      }
+      </script><link as="script" rel="preload" href="/webpack-runtime-7d61efc50382380f4144.js"/><link as="script" rel="preload" href="/framework-b8590221250d5259dcb1.js"/><link as="script" rel="preload" href="/app-d9a429850a041109b680.js"/><link as="script" rel="preload" href="/93241701166c3169d92c9fdd395837837cace836-6cff56a51e20316a9513.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-js-f2d681f514ec38d53e93.js"/><link as="fetch" rel="preload" href="/page-data/blog/automated-ui-testing-for-ios-app-with-appium-and-java/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><nav id="navigation-bar" class="top-bar scroll-motion navbar navbar-expand navbar-light"><a id="home_nav" class="signature-icon" href="/"></a><div class="justify-content-end top-bar-right blog_nav_menu navbar-collapse collapse"><ul><li><a id="about_nav" href="/about"><span>About</span></a></li></ul></div></nav><div class="blog"><div class="section"><div class="txtc pbxl"><h1>Automated UI Testing for iOS app - with Appium, Java and TestNG</h1><span class="mvm">Apr 04, 2020</span></div><div class="mvl"><p>Writing automated UI tests is a great and efficient way to test and ensure the quality of your mobile app. Appium is a popular open source framework for automated mobile app UI testing. It lets you write automated UI tests for native, hybrid, and mobile web apps running on both iOS and Android platforms, using the same API that Appium provides. Appium API supports a wide variety of languages, including Java, Python, javascript, Ruby, C#, and PHP.</p>
+<p></p>
+<p>In this tutorial, we will create basic automated UI tests to run on an iOS mobile app, using Appium, Java and TestNG.</p>
+<p></p>
+<h2>Part 1: Environment&nbsp;Setup</h2>
+<h3>Step 1: Install Java Development Kit (JDK)</h3>
+<p>To install JDK 1.8, open your terminal and type the following:</p>
+<pre class="language-undefined"><code>$ brew tap adoptopenjdk/openjdk
+$ brew cask install adoptopenjdk8</code></pre>
+<p>Now that JDK 1.8 is installed, we have to set the environment variable <code>JAVA_HOME</code>.</p>
+<p>Open the file <code>~/.bash_profile</code> (or <code>~/.zshrc</code> if you use zsh), add the following:</p>
+<pre class="language-undefined"><code>export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+export PATH=$JAVA_HOME/bin:$PATH</code></pre>
+<p></p>
+<h3>Step 2: Install Xcode and Simulators</h3>
+<p>You may likely already have Xcode installed on your Mac. But if you don't, open the <code>App Store app</code> and install Xcode.&nbsp;</p>
+<p>Once Xcode is installed, it comes with a list of simulators to use. To check the list of simulators and their IOS versions, go to <code>Xcode -&gt; Window -&gt; Devices and Simulators</code></p>
+<p>If you wish to use simulators with a different iOS version, go to <code>Xcode -&gt; Preferences -&gt; Component</code>, and install the desired version of simulator.</p>
+<p></p>
+<h3>Step 3: Install Appium</h3>
+<p>We need to run Appium server to connect to iOS device and send UI tests commands over to instruct the device to perform actions.</p>
+<p>Appium can be simply installed via NPM. Open your terminal and type the following:</p>
+<pre class="language-undefined"><code>$ npm install -g appium</code></pre>
+<p></p>
+<h3>Step 4: Install IntelliJ IDE (Free Community Edition)</h3>
+<p>We will use <code>IntelliJ</code> to create our UI tests maven project. IntelliJ is an Integrated Development Environment (IDE) developed by JetBrains. Its Community Edition is free to use and powerful enough that provides rich features to write, compile and run Java code.</p>
+<p>Download and install <code>IntelliJ (Community Edition)</code> from here:&nbsp;<a href="https://www.jetbrains.com/idea/download">https://www.jetbrains.com/idea/download</a></p>
+<p></p>
+<h2>Part 2: Write and Run automated UI tests</h2>
+<p>With the above set up, we should have a complete environment for running automated UI tests. Now let's look at how to write our UI tests and run them.</p>
+<h3>Step 1: Create a simple iOS app using React Native</h3>
+<p>Before we can write and run our UI tests, we need an IOS app that we can interact with to run automated UI tests. <strong>If you already have an iOS app you want to run UI tests against, you can skip to next step.</strong></p>
+<p>In this step, we will create a simple iOS app that we will run UI tests on, using React Native. React Native is a popular open-source mobile application framework. It can be used to develop cross-platform applications for iOS, Android, and Web.</p>
+<p>Follow the instructions below to create a simple React Native app:</p>
+<p>1. First, we need to install <code>react-native-cli</code>:</p>
+<pre class="language-undefined"><code>$ npm install -g react-native-cli
+</code></pre>
+<p>2. Then we can create a simple React Native app using <code>react-native</code> command. <code>AppiumUITestsExampleApp</code>&nbsp;is an example name for the React Native app. Feel free to change it to a name of your choice.</p>
+<pre class="language-undefined"><code>$ react-native init AppiumUITestsExampleApp</code></pre>
+<p>3. At last let's run the app and open the app in iOS simulator.&nbsp;</p>
+<p>In the current terminal window, start the react-native server:</p>
+<pre class="language-undefined"><code>$ cd ./AppiumUITestsExampleApp
+$ react-native start
+</code></pre>
+<p>Open another terminal window, and <code>cd</code> into the <code>AppiumUITestsExampleApp</code>&nbsp;directory, run the following to run the iOS app:</p>
+<pre class="language-undefined"><code>$ react-native run-ios
+</code></pre>
+<p>It will start building the iOS app bundle and automatically open up an iOS simulator to install and launch the iOS app.</p>
+<p>4. In your terminal output, you should see <code>Build Succeed</code> and it's then <code>Installing</code> and <code>Launching</code> the app as below:</p>
+<pre class="language-javascript"><code>▸ Build Succeeded
+info Installing "/Users/anonymous/Library/Developer/Xcode/DerivedData/AppiumUITestsExampleApp-ctzpwtembojftqdlmhpsholpwycs/Build/Products/Debug-iphonesimulator/AppiumUITestsExampleApp.app"
+info Launching "org.reactjs.native.example.AppiumUITestsExampleApp"</code></pre>
+<p>Take note of where it's installing the app bundle from&nbsp;<code>/Users/anonymous/Library/Developer/Xcode/DerivedData/AppiumUITestsExampleApp-ctzpwtembojftqdlmhpsholpwycs/Build/Products/Debug-iphonesimulator/AppiumUITestsExampleApp.app</code>(your app bundle file path might be different). We will need to use this app bundle file path later to run automated UI tests.</p>
+<p></p>
+<p>By this step, you should be able to see an iOS simulator running the example React Native app like below:</p>
+<p><img src="https://cdn.buttercms.com/AuwB0zlyR6WR0TUgoKGx" alt="undefined" width="236" height="496" style="display: block; margin-left: auto; margin-right: auto;" /></p>
+<p style="text-align: center;"><span style="color: #999999;">Simple React Native app running on IOS simulator (iPhone 11, 13.4)</span></p>
+<p></p>
+<h3>Step 2: Create UI tests maven project</h3>
+<p><span>Maven is a popular build automation tool used for building and managing Java projects. We will create our UI tests project as a maven project.</span></p>
+<p><span>1. Open IntelliJ, go to <code>File -&gt; New -&gt; Project</code>, which opens up a dialog window to create a new project.</span></p>
+<p><span>2. Select <code>Maven</code> on the left panel, and set <code>Project SDK</code> on the top to be <code>1.8</code> (the JDK we installed earlier), and click <code>Next</code>.</span></p>
+<p><span>3. On the next panel, for <code>Name</code> field, type <code>AppiumIOSUITestsTutorial</code> (or any other name you'd like). Set&nbsp;<code>Location</code> to be the directory you want to save this project. Leave the rest and click <code>Finish</code>.</span><span></span></p>
+<p><span></span>This will create a basic maven project in IntelliJ which looks like below:</p>
+<p><img src="https://cdn.buttercms.com/bqZRHVITbe4EoXWCshiS" alt="undefined" width="781" height="510" style="display: block; margin-left: auto; margin-right: auto;" /></p>
+<p style="text-align: center;"><span style="color: #999999;">Screenshot of a basic maven project in IntelliJ</span></p>
+<p></p>
+<h3>Step 3: Install package dependencies</h3>
+<p>Next, we need install a list of package dependencies that are needed to write, compile and run Appium UI test.&nbsp;</p>
+<p>1. Open the file <code>pom.xml</code>, and add the below <code>&lt;dependencies&gt;...&lt;/dependencies&gt;</code> block inside the <code>&lt;project&gt;...&lt;/project&gt;</code> block.&nbsp;</p>
+<pre class="language-java"><code>  &lt;dependencies&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.testng&lt;/groupId&gt;
+      &lt;artifactId&gt;testng&lt;/artifactId&gt;
+      &lt;version&gt;7.1.0&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;io.appium&lt;/groupId&gt;
+      &lt;artifactId&gt;java-client&lt;/artifactId&gt;
+      &lt;version&gt;7.3.0&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;com.google.guava&lt;/groupId&gt;
+      &lt;artifactId&gt;guava&lt;/artifactId&gt;
+      &lt;version&gt;28.2-jre&lt;/version&gt;
+    &lt;/dependency&gt;
+  &lt;/dependencies&gt;</code></pre>
+<p>2. Next, right click on the project name, go to <code>Maven -&gt; Reimport</code>&nbsp;to import the dependencies. This&nbsp;will download and install the above list of dependencies into the project.</p>
+<p></p>
+<h3>Step 4: Write simple UI automation tests</h3>
+<p>Now that we have an iOS app and a UI tests maven project set up, we can start writing simple UI automation tests to run against the iOS app.&nbsp;</p>
+<p>1. In IntelliJ, create a file <code>AppUITests.java</code> under <code>src/main/java</code> directory.</p>
+<p>2. In <code>AppUITests.java</code> file, paste the following code:</p>
+<pre class="language-java"><code>import io.appium.java_client.ios.IOSDriver;
+import io.appium.java_client.ios.IOSElement;
+import io.appium.java_client.remote.MobileCapabilityType;
+import java.net.MalformedURLException;
+import java.net.URL;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Test;
+
+public class AppUITests {
+
+    public static URL url;
+    public static DesiredCapabilities capabilities;
+    public static IOSDriver&lt;IOSElement&gt; driver;
+
+    @BeforeSuite
+    public void setupAppium() throws MalformedURLException {
+        final String URL_STRING = "http://127.0.0.1:4723/wd/hub";
+        url = new URL(URL_STRING);
+
+        capabilities = new DesiredCapabilities();
+        capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "XCUITest");
+        capabilities.setCapability("useNewWDA", false);
+        capabilities.setCapability(MobileCapabilityType.NO_RESET, true);
+        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "iPhone Simulator");
+        capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "iOS");
+        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "13.4");
+        // MobileCapabilityType.APP is set to the IOS app bundle file path that was created in Step 1. Replace it with your app bundle file path.
+        capabilities
+            .setCapability(MobileCapabilityType.APP,
+                "/Users/anonymous/Library/Developer/Xcode/DerivedData/AppiumUITestsExampleApp-ctzpwtembojftqdlmhpsholpwycs/Build/Products/Debug-iphonesimulator/AppiumUITestsExampleApp.app");
+
+        driver = new IOSDriver&lt;IOSElement&gt;(url, capabilities);
+    }
+
+    @AfterSuite
+    public void afterSuite() {
+        driver.closeApp();
+    }
+
+    @Test
+    public void basicTest() throws InterruptedException {
+        driver.resetApp();
+    }
+}
+</code></pre>
+<p>Let's take a closer look at what's going on here:</p>
+<ul>
+<li><code>http://127.0.0.1:4723/wd/hub</code> is the localhost url where Appium server will be running. Our UI tests will establish a connection to the Appium server url once running.</li>
+<li>Then we need to set a list of capabilities, which we use to tell Appium how to set up our UI tests. See more about <a href="http://appium.io/docs/en/writing-running-appium/caps/" rel="follow">Appium desired capabilities</a>.
+<ul>
+<li><code>AUTOMATION_NAME</code> tells Appium the type of automation engine we want to use. <code>XCUITest</code> is the driver for IOS tests.</li>
+<li><code>DEVICE_NAME</code> specifies a name for the device. It's more of a display name to distinguish itself.</li>
+<li><code>PLATFORM_NAME</code> specifics the mobile platform.</li>
+<li><code>PLATFORM_VERSION</code> specifics the mobile OS version.</li>
+<li><code>APP</code> specifies the path to the app we wish to use. It could be an absolute local file path or remote http url.&nbsp;Do remember to modify&nbsp;<code>MobileCapabilityType.APP</code> to be your own IOS app bundle file path that was created in Step 1.&nbsp;</li>
+</ul>
+</li>
+<li>Last we initialize an iOSDriver using the Appium server url and capabilities. We will be using this iOS driver to interact with our device and app.</li>
+</ul>
+<p></p>
+<h3>Step 5: Run automated UI tests on iOS simulator</h3>
+<p>With above UI tests written, we are now ready to run our automated UI tests against the iOS app we created on iOS simulator.</p>
+<p>1. First, let's launch the Appium server. Open your terminal and type the following:</p>
+<pre class="language-undefined"><code>$ appium</code></pre>
+<p>This will start the Appium server in the foreground, and the server is listening and waiting on any connection from UI tests.&nbsp;</p>
+<p>2. Next, we will run the UI tests from <code>IntelliJ</code>. Right click on the file <code>AppUITests.java</code>, select <code>Run 'AppUITests'</code>, and it should start running the TestNG tests in the file.</p>
+<p>3. In the terminal, you should see Appium server is establishing a connection with the automated UI tests, and as instructed opening up an iOS simulator, installing our iOS app bundle, and executing the automated UI tests against the installed iOS app.</p>
+<p>4. Meanwhile, you will see an IOS simulator being opened up and our&nbsp;<code>AppiumUITestsExampleApp</code> iOS app being installed and launched a few times. Our automated UI tests run in <code>IntelliJ</code> will also finish successfully.&nbsp;</p>
+<p></p>
+<h2>Final Words</h2>
+<p>Congrats! You have successfully created a React Native iOS app, and written automated UI tests to interact with the app on iOS simulator. Feel free to play around and add some more complicated UI tests to verify the app's behaviors.&nbsp;</p></div></div></div><div class="footer txtc">Copyright © <!-- -->2022<!-- -->. All rights reserved. Made better with <a href="https://buttercms.com" target="_blank" rel="noreferrer"><img height="30" width="120" src="https://cdn.buttercms.com/RyJ7UhcVTCRqrCFXwgCo" alt="ButterCMS"/></a></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/blog/automated-ui-testing-for-ios-app-with-appium-and-java";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-bf67088b05334bb39a49.js"],"app":["/app-d9a429850a041109b680.js"],"component---src-pages-404-js":["/component---src-pages-404-js-2a2a0ed2278b7a5836ee.js"],"component---src-pages-about-js":["/component---src-pages-about-js-a7897713f96be3b1b891.js"],"component---src-pages-index-js":["/component---src-pages-index-js-c6bbe9a15d5824c5fa4f.js"],"component---src-templates-blog-post-js":["/component---src-templates-blog-post-js-f2d681f514ec38d53e93.js"]};/*]]>*/</script><script src="/polyfill-bf67088b05334bb39a49.js" nomodule=""></script><script src="/component---src-templates-blog-post-js-f2d681f514ec38d53e93.js" async=""></script><script src="/93241701166c3169d92c9fdd395837837cace836-6cff56a51e20316a9513.js" async=""></script><script src="/app-d9a429850a041109b680.js" async=""></script><script src="/framework-b8590221250d5259dcb1.js" async=""></script><script src="/webpack-runtime-7d61efc50382380f4144.js" async=""></script></body></html>
