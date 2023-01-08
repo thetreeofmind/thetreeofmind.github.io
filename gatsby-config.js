@@ -1,8 +1,8 @@
 module.exports = {
   pathPrefix: '/',
   siteMetadata: {
-    title: 'The Tree of Mind',
-    siteUrl: 'https://thetreeofmind.com',
+    title: 'The Tree of Life',
+    siteUrl: 'https://stephenweixu.github.io',
   },
   plugins: [
     'gatsby-plugin-sass',
@@ -16,7 +16,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-s3',
       options: {
-        bucketName: 'thetreeofmind.com',
+        bucketName: 'thetreeoflife.com',
       }
     },
     {
@@ -29,9 +29,9 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'The Tree of Mind',
-        short_name: 'The Tree of Mind',
-        description: 'The Tree of Mind',
+        name: 'The Tree of life',
+        short_name: 'The Tree of life',
+        description: 'The Tree of life',
         start_url: '/',
         background_color: '#ffffff',
         theme_color: '#000000',
