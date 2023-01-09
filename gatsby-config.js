@@ -16,15 +16,8 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-copy-files',
       options: {
-        source: `${__dirname}/images`,
-        destination: 'public/images'
-      }
-    },
-    {
-      resolve: 'gatsby-plugin-copy-files',
-      options: {
         source: `${__dirname}/public`,
-        destination: ''
+        destination: 'docs'
       }
     },
     {
