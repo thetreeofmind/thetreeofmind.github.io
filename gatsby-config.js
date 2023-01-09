@@ -14,9 +14,10 @@ module.exports = {
       }
     },
     {
-      resolve: 'gatsby-plugin-s3',
+      resolve: 'gatsby-plugin-copy-files',
       options: {
-        bucketName: 'thetreeoflife.com',
+        source: `${__dirname}/images`,
+        destination: 'public/images'
       }
     },
     {
@@ -24,13 +25,6 @@ module.exports = {
       options: {
         source: `${__dirname}/public`,
         destination: ''
-      }
-    },
-    {
-      resolve: 'gatsby-plugin-copy-files',
-      options: {
-        source: `${__dirname}/images`,
-        destination: 'public/images'
       }
     },
     {

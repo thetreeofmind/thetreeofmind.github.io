@@ -2,6 +2,7 @@
 
 # gatsby build
 .cache/
+public/
 
 # dependencies
 /node_modules
