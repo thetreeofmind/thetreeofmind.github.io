@@ -59,6 +59,7 @@
   .blog_nav_menu {
     @include media-breakpoint-down(sm) {
       justify-content: normal !important;
+      margin-left: 10px;
     }
   }
 
