@@ -27,6 +27,13 @@ module.exports = {
       }
     },
     {
+      resolve: 'gatsby-plugin-copy-files',
+      options: {
+        source: `${__dirname}/images`,
+        destination: 'public/images'
+      }
+    },
+    {
       resolve: 'gatsby-plugin-manifest',
       options: {
         name: 'The Tree of life',
