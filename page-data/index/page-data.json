@@ -1,5 +1,0 @@
-{
-    "componentChunkName": "component---src-pages-index-js",
-    "path": "/",
-    "result": {"data":{"allButterPost":{"edges":[{"node":{"id":"bc73d305-c1e6-5772-963a-99308adf0e3f","slug":"test-page","title":"Test Page","featured_image":null,"summary":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"}}]}},"pageContext":{}},
-    "staticQueryHashes": []}
