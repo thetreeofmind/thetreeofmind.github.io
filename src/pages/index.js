@@ -16,6 +16,7 @@ const Blog = ({ data }) => {
       <Helmet>
         <title>The Tree of Life blog</title>
         <meta name="description" content="Check out blog posts from the tree of life." />
+        <meta name="google-site-verification" content="3kp0QHWLVbb0UMTvGO4VJvWIvXmotr-ubWDO48fGky" />
         <link rel="icon" href="/images/favicon-tab.png" />
       </Helmet>
 
