@@ -14,8 +14,8 @@ const Blog = ({ data }) => {
   return (
     <>
       <Helmet>
-        <title>Blog</title>
-        <meta name="description" content="Check out blog posts." />
+        <title>The Tree of Life blog</title>
+        <meta name="description" content="Check out blog posts from the tree of life." />
         <link rel="icon" href="/images/favicon-tab.png" />
       </Helmet>
 

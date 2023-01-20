@@ -10,7 +10,7 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public && cp -r public/* docs/"
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public && cp -r public/* docs/ && rm -rf public"
   },
   "author": "The Tree of Life",
   "license": "ISC",
