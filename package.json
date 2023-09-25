@@ -1,8 +1,8 @@
 {
-  "name": "thetreeoflife",
+  "name": "thetreeofmind",
   "version": "0.1.0",
   "homepage": "https://stephenweixu.github.io",
-  "description": "The Tree of Life",
+  "description": "The Tree of Mind",
   "main": "index.js",
   "scripts": {
     "develop": "gatsby develop",
@@ -12,7 +12,7 @@
     "clean": "gatsby clean",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public && cp -r public/* docs/ && rm -rf public"
   },
-  "author": "The Tree of Life",
+  "author": "The Tree of Mind",
   "license": "ISC",
   "dependencies": {
     "bootstrap": "^4.4.1",
