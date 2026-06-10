@@ -1,20 +1,24 @@
-# blog
- 
-## Tech stack used
-* Gatsby
-* React
-* React Router
-* React Bootstrap
-* Sass
-* ButterCMS
-* S3
-* CloudFront
+# The Tree of Mind
 
-## Hosting
-This repo is hosted via github pages. Manual configuration is done in the repo settings, to point github pages to serve content from /docs folder from the `main` branch of the repo.
+Personal blog at [thetreeofmind.github.io](https://thetreeofmind.github.io).
 
-A new commit to the `main` branch will trigger a new deployment to the site automatically.
+## Tech stack
 
-Therefore, make sure all compiled static js, css, html files are in /docs folder, and committed into source control
+- Next.js 15 (static export)
+- React 19
+- Sass (CSS modules)
+- ButterCMS (headless content)
 
+## Development
 
+```bash
+cp .env.example .env.local  # add your ButterCMS API key
+npm install
+npm run dev
+```
+
+## Deployment
+
+Pushes to `main` trigger a GitHub Actions workflow that builds and deploys to GitHub Pages.
+
+To deploy, add `BUTTERCMS_API_KEY` as a repository secret in GitHub Settings > Secrets > Actions.

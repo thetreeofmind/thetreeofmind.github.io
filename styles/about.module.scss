@@ -1,0 +1,12 @@
+@use "settings" as *;
+
+.about {
+  padding-top: 5rem;
+  min-height: calc(100vh - 60px);
+}
+
+.content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
